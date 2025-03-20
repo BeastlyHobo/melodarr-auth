@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Melodarr - Last.fm Authentication</title>
+    <title>Melodarr Authentication</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
@@ -23,60 +23,12 @@
         }
         h1 {
             color: #333;
-            margin-bottom: 20px;
-        }
-        p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        #manual-button {
-            display: none;
-            padding: 10px 20px;
-            background-color: #007AFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        #manual-button:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Redirecting to Melodarr...</h1>
-        <p>Please wait while we complete the Last.fm authentication.</p>
-        <a id="manual-button" href="#">Return to Melodarr</a>
+        <h1>Melodarr Authentication Service</h1>
     </div>
-
-    <script>
-        function getQueryParams() {
-            const params = {};
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            for (const [key, value] of urlParams) {
-                params[key] = value;
-            }
-            return params;
-        }
-
-        window.onload = function() {
-            const params = getQueryParams();
-            const redirectURL = `melodarr://auth/lastfm/callback${window.location.search}`;
-            
-            // Try to redirect automatically
-            window.location.href = redirectURL;
-            
-            // Show manual button after a short delay
-            setTimeout(function() {
-                const button = document.getElementById('manual-button');
-                button.style.display = 'inline-block';
-                button.href = redirectURL;
-            }, 2000);
-        };
-    </script>
 </body>
 </html> 
